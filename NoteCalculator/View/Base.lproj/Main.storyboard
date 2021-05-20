@@ -154,7 +154,7 @@
                                     <action selector="addNote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xug-Z6-dQp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moyenne " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCh-TN-Fx7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCh-TN-Fx7">
                                 <rect key="frame" x="68" y="625" width="286" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -208,16 +208,40 @@
                                     <action selector="removeLast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f22-JH-3RB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThA-Oj-mTM">
-                                <rect key="frame" x="55" y="539" width="299" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbt-Yo-xRT">
+                                <rect key="frame" x="161" y="538" width="92" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90894989370000001" green="1" blue="0.070761916339999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Balham" family="Balham" pointSize="30"/>
-                                <state key="normal" title="Calculer moyenne">
+                                <state key="normal" title="moy">
                                     <color key="titleColor" red="1" green="0.49083075040000002" blue="0.95862721210000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="getAvg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IQW-1M-gkk"/>
+                                    <action selector="getResult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g92-rd-3OH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9e-dQ-kwD">
+                                <rect key="frame" x="270" y="539" width="92" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90894989370000001" green="1" blue="0.070761916339999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Balham" family="Balham" pointSize="30"/>
+                                <state key="normal" title="max">
+                                    <color key="titleColor" red="1" green="0.49083075040000002" blue="0.95862721210000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getResult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hIf-y6-Fwz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThA-Oj-mTM">
+                                <rect key="frame" x="53" y="538" width="92" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90894989370000001" green="1" blue="0.070761916339999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Balham" family="Balham" pointSize="30"/>
+                                <state key="normal" title="min">
+                                    <color key="titleColor" red="1" green="0.49083075040000002" blue="0.95862721210000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getResult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IQW-1M-gkk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -226,8 +250,9 @@
                     </view>
                     <connections>
                         <outlet property="currentNote" destination="HOU-Ic-3mH" id="LOm-BQ-j8k"/>
-                        <outlet property="moyenne" destination="LCh-TN-Fx7" id="bcJ-vz-Xei"/>
+                        <outlet property="min" destination="ThA-Oj-mTM" id="eUY-Fc-k8l"/>
                         <outlet property="notes" destination="YL2-gL-Xks" id="Mmk-QC-r6L"/>
+                        <outlet property="result" destination="LCh-TN-Fx7" id="bcJ-vz-Xei"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

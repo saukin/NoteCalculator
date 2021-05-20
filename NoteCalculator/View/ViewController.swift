@@ -11,13 +11,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var notesArray = NotesDeLaClasse()
+    var notesArray = NotesClasses()
     
     @IBOutlet weak var currentNote: UILabel!
     
     @IBOutlet weak var notes: UILabel!
         
-    @IBOutlet weak var moyenne: UILabel!
+    @IBOutlet weak var result: UILabel!
+    
+    @IBOutlet weak var min: UIButton! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,24 +49,14 @@ class ViewController: UIViewController {
                 notesArray.append(note: Int(note))
                 currentNote.text = nil
             }
+            resetResultText()
         }
     }
     
-    @IBAction func getAvg(_ sender: UIButton) {
-        var avg : Float
-        var sum : Float = 0.0
-        var count = 0
-        for n in notesArray.getNotesList() {
-            if let _n = n {
-                sum += Float(_n)
-                count += 1
-            }
-        }
-        if (count != 0) {
-            avg = sum / Float(count)
-            moyenne.text = "Moyenne = \(avg)"
-        } else {
-            moyenne.text = "Moyenne = 0.0"
+    @IBAction func getResult(_ sender: UIButton) {
+        if let buttonTitle = sender.title(for: .normal) {
+            let operation = notesArray.getOperation(operation: buttonTitle)
+            result.text = operation()
         }
     }
     
@@ -72,21 +64,25 @@ class ViewController: UIViewController {
     @IBAction func removeLast(_ sender: UIButton) {
         notesArray.popLast()
         notes.text = nil
-        for i in notesArray.getNotesList() {
-            if let note = i {
-                if (notes.text != nil) {
-                    notes.text! += " \(note)"
-                } else {
-                    notes.text = "\(note)"
-                }
-            }
+        resetResultText()
+        for note in notesArray.getNotesList() {
+           if (notes.text != nil) {
+               notes.text! += " \(note)"
+           } else {
+               notes.text = "\(note)"
+           }
         }
     }
     
     
     @IBAction func resetNotes(_ sender: UIButton) {
-        moyenne.text = "Moyenne"
+        result.text = ""
         currentNote.text = nil
         notes.text = nil
-        notesArray.reset()    }
+        notesArray.reset()
+    }
+    
+    private func resetResultText() {
+        result.text = ""
+    }
 }
